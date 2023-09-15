@@ -1,0 +1,80 @@
+body {
+       background: rgb(71, 14, 14);
+       color: rgb(0, 0, 0);
+       padding: 10px;
+       font-family: arial;
+   }
+   #all-contents {
+     max-width: 800px;
+       margin: auto;
+   }
+
+   /* navigation menu */
+   nav {
+       background: rgb(19, 1, 1);
+      margin: 0 auto;
+       display: flex;
+       padding: 10px;
+   }
+   h1 {
+       display: flex;
+       align-items: center;
+       color: rgb(116, 79, 79);
+       flex: 1;
+       margin: 0;
+   }
+   #nav-ul {
+       list-style-image: none;
+   }
+   .nav-li {
+       display: inline-block;
+       padding: 0 10px;
+   }
+   a {
+       text-decoration: none;
+       color: rgb(116, 79, 79);
+   }
+
+   /* main container area beneath menu */
+   main {
+       background: rgb(80, 46, 46);
+       display: flex;
+   }
+   .sidebar {
+       margin-right: 25px;
+       padding: 10px;
+   }
+   .sidebar-img {
+       width: 200px;
+   }
+   .content {
+       flex: 1;
+       padding: 15px;
+   }
+
+   /* portfolio styles */
+    /* portfolio styles */
+    .content h1 {
+    color: black;
+}
+
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#portfolio li {
+    background: rgb(65, 26, 26);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+    background: #532828;
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: rgb(122, 78, 78);
+}
