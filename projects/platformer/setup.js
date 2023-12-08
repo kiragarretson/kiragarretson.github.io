@@ -102,4 +102,5 @@ var collectableList = {
   redApple: { image: "images/collectables/red-apple.png" },
   greenApple: { image: "images/collectables/green-apple.png" },
   blueberry: { image: "images/collectables/blueberry.png" },
+  dandelion: { image: "images/collectables/dandelion.png" },
 };
