@@ -67,7 +67,7 @@ createCollectable('dandelion', 980, 99, 0, 0);
     // example usage: createCannon(side, position, delay, width, height)
 createCannon('top', 500, 1000, 15, 15, 3);
 createCannon('top', 1000, 1500, 15, 15, 5);
-createCannon('top', 750, 1200, 15, 15);
+createCannon('top', 750, 1200, 15, 15, 7);
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
