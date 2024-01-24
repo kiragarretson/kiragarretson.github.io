@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(233, 199, 255);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -27,7 +27,6 @@
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
-
 	<script>
 		(function(){
 			'use strict'
@@ -76,6 +75,13 @@
 				moveBoxTo(positionX);
 				positionX = positionX + speed;
 
+				if (positionX > boardWidth){
+					speed = -speed;
+				};
+
+				if (positionX < 0){
+					speed = -speed
+				}
 			};
 
 			/* 
@@ -86,12 +92,19 @@
 			function handleBoxClick() {
 				positionX = 0;
 				changeBoxText(1);
-				speed = speed + 3;
 				points = points + 1;
 				changeBoxText(points);
 
+				if(speed >= 0){
+					speed = speed + 3;
+				}
+
+				else if(speed <= 0){
+					speed = speed - 3;
+				}
 
 			};
+			
 		})();
 	</script>
 </body>
