@@ -40,18 +40,27 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth, groundY,'blue');
+            var backgroundFill = draw.rect(canvasWidth, groundY,'#516f61');
             background.addChild(backgroundFill);
             
             // TODO 2: - Add a moon and starfield
-            for(var stars = 0; stars < 100; stars++){
-                var circle = draw.circle(10, "LightYellow", "white", 2);
+             for(var stars = 0; stars < 100; stars++){
+                var circle = draw.circle(10, "#d7fceb", "#a3eecb", 2);
                 circle.x = canvasWidth * Math.random();
                 circle.y = groundY * Math.random();
                 background.addChild(circle);
             }
+            
 
-            var moon = draw.bitmap("img/moon.png"); // holds image of moon 
+            for (var i = 0; i < 11; i++) {
+                var buildingHeight = 500 * Math.random();
+                var building = draw.rect(50, buildingHeight, "#286247", "#10402a", 3); // creates a single building
+                building.x = 600 * i;
+                building.y = groundY - buildingHeight;
+                background.addChild(building); // adds building as part of the background
+                buildings.push(building); // saves data to the array
+            }
+            var moon = draw.bitmap("img/moon (1).png"); // holds image of moon 
             moon.x = canvasWidth - 350; // creates x value
             moon.y = groundY - 450; // creates y value
             moon.scaleX = .5;
@@ -62,7 +71,7 @@ var background = function (window) {
             var buildingColors = [];
             for (var i = 0; i < 5; i++) {
                 var buildingHeight = 500 * Math.random();
-                var building = draw.rect(75, buildingHeight, "LightGray", "Black", 3); // creates a single building
+                var building = draw.rect(75, buildingHeight, "#579779", "#33684f", 3); // creates a single building
                 building.x = 200 * i;
                 building.y = groundY - buildingHeight;
                 background.addChild(building); // adds building as part of the background
