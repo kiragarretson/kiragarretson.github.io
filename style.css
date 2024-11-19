@@ -19,7 +19,7 @@ body {
    h1 {
        display: flex;
        align-items: center;
-       color: rgb(219, 255, 224);
+       color: rgb(154, 247, 166);
        flex: 1;
        margin: 0;
    }
@@ -64,7 +64,7 @@ body {
 }
 
 #portfolio li {
-    background: rgb(65, 26, 26);
+    background: rgb(255, 212, 288);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
