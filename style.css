@@ -37,7 +37,7 @@ body {
 
    /* main container area beneath menu */
    main {
-       background: rgb(80, 46, 46);
+       background: rgb(255, 213, 223);
        display: flex;
    }
    .sidebar {
@@ -55,7 +55,7 @@ body {
    /* portfolio styles */
     /* portfolio styles */
     .content h1 {
-    color: black;
+    color: rgb(255, 0, 94); // text I think?
 }
 
 #portfolio {
@@ -71,7 +71,7 @@ body {
 }
 
 #portfolio li:hover {
-    background: #532828;
+    background: rgb(226, 142, 162);
 }
 
 #portfolio a {
