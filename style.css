@@ -1,5 +1,5 @@
 body {
-       background: rgb(212, 167, 255) // background
+       background: rgb(223, 206, 241) // background
        color: rgb(136, 0, 209) // shrug
        padding: 10px;
        font-family: arial;
@@ -11,7 +11,7 @@ body {
 
    /* navigation menu */
    nav {
-       background: rgb(255, 139, 152); // pink tippy top
+       background: rgb(241, 206, 212); // pink tippy top
       margin: 0 auto;
        display: flex;
        padding: 10px;
@@ -19,7 +19,7 @@ body {
    h1 {
        display: flex;
        align-items: center;
-       color: rgb(136, 0, 209); // purple text
+       color: rgb(223, 206, 241); // purple text
        flex: 1;
        margin: 0;
    }
@@ -37,7 +37,7 @@ body {
 
    /* main container area beneath menu */
    main {
-       background: rgb(139, 224, 255);
+       background: rgb(223, 206, 241);
        display: flex;
    }
    .sidebar {
@@ -64,17 +64,17 @@ body {
 }
 
 #portfolio li {
-    background: rgb(255, 212, 288);
+    background: rgb(241, 206, 212);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 #portfolio li:hover {
-    background: rgb(226, 142, 162);
+    background: rgb(140, 208, 241);
 }
 
 #portfolio a {
     text-decoration: none;
-    color: rgb(122, 78, 78);
+    color: rgb(206, 229, 241);
 }
