@@ -1,6 +1,6 @@
 body {
-       background: rgb(223, 206, 241) // background
-       color: rgb(136, 0, 209) // shrug
+       background: rgb(223, 206, 241);
+       color: rgb(136, 0, 209);
        padding: 10px;
        font-family: arial;
    }
@@ -11,7 +11,7 @@ body {
 
    /* navigation menu */
    nav {
-       background: rgb(241, 206, 212); // pastel pink
+       background: rgb(241, 206, 212);
       margin: 0 auto;
        display: flex;
        padding: 10px;
@@ -19,7 +19,7 @@ body {
    h1 {
        display: flex;
        align-items: center;
-       color: rgb(184, 69, 245); // purple text
+       color: rgb(184, 69, 245);
        flex: 1;
        margin: 0;
    }
@@ -32,7 +32,7 @@ body {
    }
    a {
        text-decoration: none;
-       color: rgb(241, 41, 94); // tippy top text color maybe?
+       color: rgb(241, 41, 94); 
    }
 
    /* main container area beneath menu */
@@ -55,7 +55,7 @@ body {
    /* portfolio styles */
     /* portfolio styles */
     .content h1 {
-    color: rgb(255, 0, 94); // text I think?
+    color: rgb(255, 0, 94); 
 }
 
 #portfolio {
@@ -71,10 +71,10 @@ body {
 }
 
 #portfolio li:hover {
-    background: rgb(140, 208, 241);
+    background: rgb(206, 229, 241);
 }
 
 #portfolio a {
     text-decoration: none;
-    color: rgb(206, 229, 241);
+    color: rgb(140, 208, 241);
 }
