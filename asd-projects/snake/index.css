@@ -1,0 +1,36 @@
+
+body {
+  background-color: rgb(255, 250, 243);
+}
+
+#board {
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgb(226, 1, 87);
+  background-color: rgb(255, 197, 214);
+}
+
+#score, #highScore {
+  color: rgb(226, 1, 87);
+}
+
+.snake, .apple {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  user-select: none;
+}
+
+.snake {
+  background-color: rgb(145, 206, 255);
+  z-index: 2;
+}
+
+#snake-head {
+  background-color: rgb(107, 189, 255);
+}
+.apple {
+  background-color: rgb(245, 47, 47);
+  z-index: 1;
+}
