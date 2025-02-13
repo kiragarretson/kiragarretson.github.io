@@ -31,23 +31,23 @@ function runProgram(){
   };
   
   // Game Item Objects
- var walker = {
-  xPos: 0,
-  yPos: 0,
-  speedX: 0,
-  speedY: 0,
-  width: WALKER_WIDTH,
-  height: WALKER_HEIGHT,
+ var walker = Walker("#walker", 0, 0, 0, 0, WALKER_WIDTH, WALKER_HEIGHT);
+ var walker2 = Walker("#walker2", 390, 380, 0, 0, WALKER2_WIDTH, WALKER2_HEIGHT);
+ 
+
+ function Walker(id, xPos, yPos, speedX, speedY, width, height){
+  let obj = {
+    id: id,
+    xPos: xPos,
+    yPos: yPos,
+    speedX: speedX,
+    speedY: speedY,
+    width: width,
+    height: height,
+  }
+  return obj;
  }
 
- var walker2 = {
-  xPos: 390,
-  yPos: 380,
-  speedX: 0,
-  speedY: 0,
-  width: WALKER2_WIDTH,
-  height: WALKER2_HEIGHT,
- }
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
