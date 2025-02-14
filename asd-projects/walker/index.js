@@ -35,19 +35,6 @@ function runProgram(){
  var walker2 = Walker("#walker2", 390, 380, 0, 0, WALKER2_WIDTH, WALKER2_HEIGHT);
  
 
- function Walker(id, xPos, yPos, speedX, speedY, width, height){
-  let obj = {
-    id: id,
-    xPos: xPos,
-    yPos: yPos,
-    speedX: speedX,
-    speedY: speedY,
-    width: width,
-    height: height,
-  }
-  return obj;
- }
-
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -63,8 +50,10 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    repositionGameItem();
-    redrawGameItem();
+    repositionGameItem(walker);
+    repositionGameItem(walker2);
+    redrawGameItem(walker);
+    redrawGameItem(walker2);
     wallCollision();
     collideOccur();
   }
@@ -152,31 +141,21 @@ function runProgram(){
       
     }
   }
-  function repositionGameItem(){
-    walker.xPos += walker.speedX;
-    walker.yPos += walker.speedY;
-    walker2.xPos += walker2.speedX;
-    walker2.yPos += walker2.speedY;
+  function repositionGameItem(obj){
+    obj.xPos += obj.speedX;
+    obj.yPos += obj.speedY;
   }
   
-  function redrawGameItem(){
-    $("#walker").css("top", walker.yPos);
-    $("#walker").css("left", walker.xPos);
-    $("#walker2").css("top", walker2.yPos);
-    $("#walker2").css("left", walker2.xPos);
+  function redrawGameItem(obj){
+    $(obj.id).css("top", obj.yPos);
+    $(obj.id).css("left", obj.xPos);
   }
   function wallCollision(){
-    if(walker.xPos > BOARD_WIDTH - WALKER_WIDTH || walker.xPos < 0){
-      walker.xPos -= walker.speedX;
+    if(obj.xPos > BOARD_WIDTH - WALKER_WIDTH || obj.xPos < 0){
+      obj.xPos -= obj.speedX;
     }
-    if(walker.yPos > BOARD_HEIGHT - WALKER_HEIGHT || walker.yPos < 0){
-      walker.yPos -= walker.speedY;
-    }
-    if(walker2.xPos > BOARD_WIDTH - WALKER_WIDTH || walker2.xPos < 0){
-      walker2.xPos -= walker2.speedX;
-    }
-    if(walker2.yPos > BOARD_HEIGHT - WALKER_HEIGHT || walker2.yPos < 0){
-      walker2.yPos -= walker2.speedY;
+    if(obj.yPos > BOARD_HEIGHT - WALKER_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
     }
   }
 
@@ -186,6 +165,19 @@ function runProgram(){
       $("#walker").css("background-color", walker2Color);
       $("#walker2").css("background-color", walkerColor)
   }
+
+  function Walker(id, xPos, yPos, speedX, speedY, width, height){
+    let obj = {
+      id: id,
+      xPos: xPos,
+      yPos: yPos,
+      speedX: speedX,
+      speedY: speedY,
+      width: width,
+      height: height,
+    }
+    return obj;
+   }
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
