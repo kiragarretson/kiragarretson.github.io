@@ -151,7 +151,7 @@ function runProgram(){
     $(obj.id).css("top", obj.yPos);
     $(obj.id).css("left", obj.xPos);
   }
-  function wallCollision(){
+  function wallCollision(obj){
     if(obj.xPos > BOARD_WIDTH - WALKER_WIDTH || obj.xPos < 0){
       obj.xPos -= obj.speedX;
     }
