@@ -54,7 +54,8 @@ function runProgram(){
     repositionGameItem(walker2);
     redrawGameItem(walker);
     redrawGameItem(walker2);
-    wallCollision();
+    wallCollision(walker);
+    wallCollision(walker2);
     collideOccur();
   }
   
