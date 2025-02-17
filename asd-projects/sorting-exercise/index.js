@@ -14,14 +14,15 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
+// sorts all elements of the array from smallest to largest, and updates the swap counter accordingly
 
 async function bubbleSort(array){
-    for(var i = 0; i < array.length - 1; i++){
-        for(var j = array.length - 1; j > 1; j--){
-            if(array[j].value < array[j - 1].value){
-                swap(array, j, j - 1);
-                updateCounter(bubbleCounter);
-                await sleep();
+    for(var i = 0; i < array.length - 1; i++){ // runs/pushes through the array
+        for(var j = array.length - 1; j > 1; j--){ // sorts through the array, starts at the end of the array moving backwards, compares the two elements next to eachother
+            if(array[j].value < array[j - 1].value){ // if the value of the current index is less than the prev element, the swap function is called
+                swap(array, j, j - 1); // swaps the value of index j if the value is less than the prev element, else it will skip
+                updateCounter(bubbleCounter); // updates the movecount
+                await sleep(); // awaits the sleep amount in order to pause the movement (causes visuals to be slower)
             }
         }
     }
@@ -30,17 +31,28 @@ async function bubbleSort(array){
 
 // TODO 3: Implement quickSort
 
+function quickSort(array, left, right){
+    if(left >= right){  // if the right index is greater than the left index, the array is already sorted and only needs to be returned
+        return; // returns the function
+    }
+}
+
 
 // TODOs 4 & 5: Implement partition
+
+var index = await partition(array, left, right)
+if(left < index - 1){
+    await quickSort(array, left, index - 1);
+}
 
 
 // TODO 1: Implement swap
 
 function swap(array, i, j){
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = array[i];
-    drawSwap(array, i, j);
+    var temp = array[i]; // stores the index value of the array in a temporary variable
+    array[i] = array[j]; // value i is being stored as index j
+    array[j] = temp; // value j is being stored as temp
+    drawSwap(array, i, j); // visually draws the swap 
 }
 
 
