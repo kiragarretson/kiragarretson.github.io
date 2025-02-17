@@ -40,9 +40,13 @@ function quickSort(array, left, right){
 
 // TODOs 4 & 5: Implement partition
 
-var index = await partition(array, left, right)
+var index = await partition(array, left, right);
 if(left < index - 1){
     await quickSort(array, left, index - 1);
+}
+
+if(right > index){
+    await quickSort(array, index, right);
 }
 
 
