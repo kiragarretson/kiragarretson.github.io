@@ -11,7 +11,7 @@ body {
 
    /* navigation menu */
    nav {
-       background: rgb(241, 206, 212);
+       background: rgb(206, 229, 241);
       margin: 0 auto;
        display: flex;
        padding: 10px;
@@ -71,10 +71,10 @@ body {
 }
 
 #portfolio li:hover {
-    background: rgb(206, 229, 241);
+    background: rgb(241, 206, 212);
 }
 
 #portfolio a {
     text-decoration: none;
-    color: rgb(52, 152, 202);
+    color: rgb(35, 161, 224);
 }
