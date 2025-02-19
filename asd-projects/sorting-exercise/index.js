@@ -33,39 +33,38 @@ async function bubbleSort(array){
 
 async function quickSort(array, left, right){
     if(left >= right){  // if the right index is greater than the left index, the array is already sorted and only needs to be returned
-        return; // returns the function
+        return;
+    }
+    var index = await partition(array, left, right); // sets the index to await the partition function
+    if(left < index - 1){ // reads if the left value of the array is less than the index of the array - 1
+        await quickSort(array, left, index - 1); // awaits the function quickSort if the conditions of the if statement is met
+    }
+    
+    if(index < right){ // reads if the value of the index of the array is greater than the value of the right index
+        await quickSort(array, index, right); // awaits the function quickSort to sort the array based upon the array, index, and right arguements
     }
 }
-
 
 // TODOs 4 & 5: Implement partition
 
 async function partition(array, left, right){
     let pivot = array[Math.floor((right + left) / 2)].value; // creating a variable called pivot that selects the pivot amount by finding the middle index and using its value
-    while(left < right){
-        while(array[left].value < pivot){
-            left++;
+    while(left < right){ // executes the code inside of the while loop as long as the conditions are met, and will not run if the conditions are not met
+        while(array[left].value < pivot){  // reads if the value of the left index in the array is less than the value of pivot
+            left++; // increses left if the conditions of the while statement are met
         }
-        while(array[right].value < pivot){
-            right--;
+        while(array[right].value > pivot){ // reads if the value of the right index in the array is greater than the value of pivot
+            right--; // decreases right if the conditions of the while statement are met
         }
-        if(left < right){
-            swap(array, i, j);
-            updateCounter(quickCounter);
-            await sleep();
+        if(left < right){ // reads if the value of left is greater than the value of right
+            swap(array, left, right); // calls the swap function if the conditions of the if statement are met
+            updateCounter(quickCounter); // calls the updateCounter function if the conditions of the if statement are met
+            await sleep(); // awaits sleep if the conditions of the if statement are met, ending the loop
         }
     }
 
-    return left + 1;
+    return left + 1; // returns the index value of left + 1 as long as the function partition is called
 };
-
-if(left < index - 1){
-    await quickSort(array, left, index - 1);
-}
-
-if(right > index){
-    await quickSort(array, index, right);
-}
 
 
 // TODO 1: Implement swap
