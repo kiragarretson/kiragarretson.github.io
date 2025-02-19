@@ -11,7 +11,7 @@ body {
 
    /* navigation menu */
    nav {
-       background: rgb(206, 229, 241);
+       background: rgb(248, 174, 186);
       margin: 0 auto;
        display: flex;
        padding: 10px;
@@ -64,7 +64,7 @@ body {
 }
 
 #portfolio li {
-    background: rgb(241, 206, 212);
+    background: rgb(248, 174, 186);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -76,5 +76,5 @@ body {
 
 #portfolio a {
     text-decoration: none;
-    color: rgb(35, 161, 224);
+    color: rgb(255, 0, 94);
 }
