@@ -14,6 +14,8 @@ function runProgram(){
   const BOARD_HEIGHT = $("#board").height();
   const PADDLE_WIDTH = $("#paddle").width();
   const PADDLE_HEIGHT = $("#paddle").height();
+  const BALL_WIDTH = $("#ball").width();
+  const BALL_HEIGHT = $("#ball").height();
   
   // Game Item Objects
   function gameItem(id, speedX, speedY){
@@ -116,26 +118,40 @@ function runProgram(){
     }
   }
 
-  // handle paddle on wall collision
-  // handle paddle on ball collision
-  // handle ball on wall collision
   // handle win scenario
   // handle the point tally
   // handle game reset
+
+  // handle paddle on wall collision
   function wallCollision(obj){
+    // paddle on wall
     if(obj.yPos > BOARD_WIDTH - PADDLE_HEIGHT || obj.yPos < 0){
       obj.yPos -= obj.speedY;
     }
     if(obj.yPos > BOARD_HEIGHT - PADDLE_HEIGHT || obj.yPos < 0){
       obj.yPos -= obj.speedY;
     }
+
+    //ball on wall
+    if(obj.yPos > BOARD_WIDTH - BALL_WIDTH || obj.xPos < 0){
+      obj.xPos -= obj.speedX;
+    }
+    if(obj.yPos > BOARD_HEIGHT - BALL_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
+    }
   }
 
+  // handle paddle on ball collision
   function ballCollision(obj){
-   
+    if(obj.yPos > BOARD_WIDTH - PADDLE_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
+    }
+    if(obj.yPos > ball.W - PADDLE_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
+    }
   }
 
-
+  // handles point reset and win message 
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
