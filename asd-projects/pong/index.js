@@ -12,6 +12,8 @@ function runProgram(){
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   const BOARD_WIDTH = $("#board").width();
   const BOARD_HEIGHT = $("#board").height();
+  const PADDLE_WIDTH = $("#paddle").width();
+  const PADDLE_HEIGHT = $("#paddle").height();
   
   // Game Item Objects
   function gameItem(id, speedX, speedY){
@@ -58,9 +60,9 @@ function runProgram(){
     moveGameItem(rightPaddle);
     drawGameItem(ball);
     moveGameItem(ball);
-    doCollide(leftPaddle);
-    doCollide(rightPaddle);
-    doCollide(ball);
+    wallCollision(leftPaddle);
+    wallCollision(rightPaddle);
+    wallCollision(ball);
 
   }
   
@@ -120,30 +122,18 @@ function runProgram(){
   // handle win scenario
   // handle the point tally
   // handle game reset
-  function doCollide(obj1, obj2) {
-    // TODO: calculate and store the remaining
-    // sides of the left paddle
-    obj1.leftX = obj1.xPos;
-    obj1.topY =  obj1.yPos;
-    obj1.rightX =  obj1.xPos + obj1.width;
-    obj1.bottomY =  obj1.yPos + obj1.height;
-
-    // TODO: Do the same for right paddle
-    obj2.leftX = obj2.xPos;
-    obj2.topY = obj2.yPos;
-    obj2.rightX = obj2.xPos + obj2.width;
-    obj2.bottomY = obj2.yPos + obj2.height;
-
-    // TODO: Return true if they are overlapping, false otherwise
-	if(obj2.rightX > obj1.leftX &&
-       obj2.leftX < obj1.rightX &&
-       obj2.bottomY > obj1.topY){
-      return true;
+  function wallCollision(obj){
+    if(obj.yPos > BOARD_WIDTH - PADDLE_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
     }
-	else {
-      return false;
+    if(obj.yPos > BOARD_HEIGHT - PADDLE_HEIGHT || obj.yPos < 0){
+      obj.yPos -= obj.speedY;
     }
-}
+  }
+
+  function ballCollision(obj){
+   
+  }
 
 
   function endGame() {
