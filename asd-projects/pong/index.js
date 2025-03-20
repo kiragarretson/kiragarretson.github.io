@@ -62,9 +62,9 @@ function runProgram(){
     moveGameItem(rightPaddle);
     drawGameItem(ball);
     moveGameItem(ball);
-    wallCollision(leftPaddle);
-    wallCollision(rightPaddle);
-    wallCollision(ball);
+    doCollide(leftPaddle);
+    doCollide(rightPaddle);
+    doCollide(ball);
 
   }
   
@@ -121,36 +121,32 @@ function runProgram(){
   // handle win scenario
   // handle the point tally
   // handle game reset
+  function doCollide(obj1, obj2) {
+    // TODO: calculate and store the remaining
+    // sides of the square1
+    obj1.leftX = obj1.xPos;
+    obj1.topY =  obj1.yPos;
+    obj1.rightX =  obj1.xPos + obj1.width;
+    obj1.bottomY =  obj1.yPos + obj1.height;
 
+    // TODO: Do the same for square2
+    obj2.leftX = obj2.xPos;
+    obj2.topY = obj2.yPos;
+    obj2.rightX = obj2.xPos + obj2.width;
+    obj2.bottomY = obj2.yPos + obj2.height;
+
+    // TODO: Return true if they are overlapping, false otherwise
+	if(obj2.rightX > obj1.leftX &&
+       obj2.leftX < obj1.rightX &&
+       obj2.bottomY > obj1.topY){
+      return true;
+    }
+	else {
+      return false;
+    }
+}
   // handle paddle on wall collision
-  function wallCollision(obj){
-    // paddle on wall
-    if(obj.yPos > BOARD_WIDTH - PADDLE_HEIGHT || obj.yPos < 0){
-      obj.yPos -= obj.speedY;
-    }
-    if(obj.yPos > BOARD_HEIGHT - PADDLE_HEIGHT || obj.yPos < 0){
-      obj.yPos -= obj.speedY;
-    }
-
-    //ball on wall
-    if(obj.yPos > BOARD_WIDTH - BALL_WIDTH || obj.xPos < 0){
-      obj.xPos -= obj.speedX;
-    }
-    if(obj.yPos > BOARD_HEIGHT - BALL_HEIGHT || obj.yPos < 0){
-      obj.yPos -= obj.speedY;
-    }
-  }
-
-  // handle paddle on ball collision
-  function ballCollision(obj){
-    if(obj.yPos > BOARD_WIDTH - PADDLE_HEIGHT || obj.yPos < 0){
-      obj.yPos -= obj.speedY;
-    }
-    if(obj.yPos > ball.W - PADDLE_HEIGHT || obj.yPos < 0){
-      obj.yPos -= obj.speedY;
-    }
-  }
-
+  
   // handles point reset and win message 
   function endGame() {
     // stop the interval timer
