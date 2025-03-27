@@ -18,11 +18,11 @@ function runProgram(){
   const BALL_HEIGHT = $("#ball").height();
   
   // Game Item Objects
-  function gameItem(id, speedX, speedY){
+  function gameItem(id, x, y, speedX, speedY){
     var obj = {
       id: id,
-      xPos: parseFloat($(id).css("left")),
-      yPos: parseFloat($(id).css("top")),
+      xPos: x,
+      yPos: y,
       speedX: speedX,
       speedY: speedY,
       W: $(id).width(),
@@ -31,9 +31,9 @@ function runProgram(){
     return obj;
   };
   
-  var leftPaddle = gameItem("#leftPaddle", 0, 0);
-  var rightPaddle = gameItem("#rightPaddle", 0, 0);
-  var ball = gameItem("#ball", (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1), (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -3 : 1));
+  var leftPaddle = gameItem("#leftPaddle", 20, 200, 0, 0);
+  var rightPaddle = gameItem("#rightPaddle", BOARD_WIDTH - PADDLE_WIDTH - 50, BOARD_HEIGHT / 2, 0, 0);
+  var ball = gameItem("#ball", BOARD_WIDTH / 2, BOARD_HEIGHT / 2, (Math.random() > 0.5 ? -3 : 3), (Math.random() > 0.5 ? -3 : 3));
 
   // keycode setup
   const KEY = {
@@ -62,9 +62,9 @@ function runProgram(){
     moveGameItem(rightPaddle);
     drawGameItem(ball);
     moveGameItem(ball);
-    doCollide(leftPaddle);
-    doCollide(rightPaddle);
-    doCollide(ball);
+    wallCollision(ball);
+    wallCollision(leftPaddle);
+    wallCollision(rightPaddle);
 
   }
   
@@ -121,30 +121,18 @@ function runProgram(){
   // handle win scenario
   // handle the point tally
   // handle game reset
-  function doCollide(obj1, obj2) {
-    // TODO: calculate and store the remaining
-    // sides of the square1
-    obj1.leftX = obj1.xPos;
-    obj1.topY =  obj1.yPos;
-    obj1.rightX =  obj1.xPos + obj1.width;
-    obj1.bottomY =  obj1.yPos + obj1.height;
+  // SEPARATE PADDLE AND BALL FUNCTIONS
 
-    // TODO: Do the same for square2
-    obj2.leftX = obj2.xPos;
-    obj2.topY = obj2.yPos;
-    obj2.rightX = obj2.xPos + obj2.width;
-    obj2.bottomY = obj2.yPos + obj2.height;
 
     // TODO: Return true if they are overlapping, false otherwise
-	if(obj2.rightX > obj1.leftX &&
-       obj2.leftX < obj1.rightX &&
-       obj2.bottomY > obj1.topY){
-      return true;
+    function wallCollision(obj){
+      if(obj.xPos > BOARD_WIDTH - PADDLE_WIDTH || obj.xPos < 0){
+        obj.xPos -= obj.speedX;
+      }
+      if(obj.yPos > BOARD_HEIGHT - PADDLE_HEIGHT || obj.yPos < 0){
+        obj.yPos -= obj.speedY;
+      }
     }
-	else {
-      return false;
-    }
-}
   // handle paddle on wall collision
   
   // handles point reset and win message 
